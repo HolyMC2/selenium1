@@ -1,2 +1,2 @@
 # selenium1
-my first selenium project
+My first selenium project
