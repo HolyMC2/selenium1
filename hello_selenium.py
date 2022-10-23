@@ -11,6 +11,16 @@ from selenium.webdriver.common.by import By
 from dotenv import load_dotenv
 
 
+grupos = {
+    "De todo un poco Escuinapa": "https://www.facebook.com/groups/736837329764119",
+    "Compro y vendo Escuinapa": "https://www.facebook.com/groups/1503270826441150",
+    "Palmitote del verde": "https://www.facebook.com/groups/138179186286776",
+    "Que pasa en Escuinapa": "https://www.facebook.com/groups/2416974915238435",
+    "Promociones Escuinapa": "https://www.facebook.com/groups/566103916800408",
+    " Compra y venta Isla del Bosque": "https://www.facebook.com/groups/188537675713473",
+}
+
+
 class App:
     def __init__(self, email="", password=""):
         self.email = os.getenv("email")
@@ -21,6 +31,7 @@ class App:
         self.main_url = "https://www.facebook.com"
         self.driver.get(self.main_url)
         self.log_in()
+        self.publicar()
         # self.used_item_links = []
         # self.scrape_item_links()
         # self.scrape_item_details()
@@ -39,13 +50,14 @@ class App:
                 "//*[@type='submit']",
             )
             login_button.click()
-
-            sleep(30)
+            sleep(3)
         except Exception:
             print("Ops, algo salio mal prro")
             sleep(10)
 
-    # def scrape_item_links(self):
+    def publicar(self):
+        self.driver.get(grupos["De todo un poco Escuinapa"])
+        sleep(30)
 
 
 # marketplace_button = self.driver.find_element_by_xpath()
